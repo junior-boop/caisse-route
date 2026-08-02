@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "caisseroute",
+    "name": "Memos",
     "slug": "caisseroute",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -31,7 +31,7 @@
         {
           "backgroundColor": "#FFF",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "imageWidth": 150
         }
       ],
       "expo-sqlite",
@@ -55,7 +55,8 @@
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/7a140dd6-fe84-48c1-939d-592f4af021c6"
+      "url": "https://u.expo.dev/7a140dd6-fe84-48c1-939d-592f4af021c6",
+      "checkAutomatically": "ON_LOAD"
     }
   }
 }

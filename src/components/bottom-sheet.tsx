@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { KeyboardAvoidingView, Modal, Platform, Pressable, View, type ViewStyle } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
-
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import theme from "@/constantes/constant-style";
 
 const SHEET_TRAVEL_DISTANCE = 300;
@@ -19,6 +19,7 @@ export function BottomSheet({ visible, onClose, children, keyboardAvoiding = tru
   const [mounted, setMounted] = useState(visible);
   const backdropOpacity = useSharedValue(0);
   const sheetTranslateY = useSharedValue(SHEET_TRAVEL_DISTANCE);
+  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     if (visible) {
@@ -56,6 +57,7 @@ export function BottomSheet({ visible, onClose, children, keyboardAvoiding = tru
       {keyboardAvoiding ? (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ flex: 1 }}>
           {content}
+          <View style={{ height: insets.bottom, backgroundColor: "white" }}></View>
         </KeyboardAvoidingView>
       ) : (
         <View style={{ flex: 1 }}>{content}</View>
